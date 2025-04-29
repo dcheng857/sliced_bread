@@ -1,8 +1,8 @@
-import { DATA_DIRECTORY, ORDERS_FILE_NAME } from "@/app/constants/file";
-import { Order } from "@/app/types/order";
 import fs from "fs";
 import { NextResponse } from "next/server";
 import path from "path";
+import { DATA_DIRECTORY, ORDERS_FILE_NAME } from "../../../constants/file";
+import { Order } from "../../../types/order";
 
 const ORDERS_FILE_PATH = path.join(
   process.cwd(),

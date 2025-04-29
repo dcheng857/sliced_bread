@@ -457,5 +457,28 @@
     "totalPrice": 84.80000000000001,
     "date": "2025-04-29T01:42:19.171Z",
     "id": "fbc3a6ae-ecc9-4aaa-87c3-706e42b8fdc3"
+  },
+  {
+    "orderNumber": "ORD-581036-0UK7",
+    "customerInfo": {
+      "name": "Taylor Williams",
+      "city": "a",
+      "state": "a",
+      "country": "a"
+    },
+    "items": [
+      {
+        "id": 2,
+        "name": "Iced Tea",
+        "description": "Refreshing iced tea with a hint of lemon",
+        "price": 3.99,
+        "image": "/images/beverages/iced-tea.jpg",
+        "category": "cold",
+        "quantity": 1
+      }
+    ],
+    "totalPrice": 3.99,
+    "date": "2025-04-29T01:53:01.036Z",
+    "id": "f67391f9-3ad6-499e-8677-c8c2acc5f558"
   }
 ]
