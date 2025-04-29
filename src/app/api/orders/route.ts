@@ -9,6 +9,12 @@ import { NextResponse } from "next/server";
 import path from "path";
 import { v4 as uuidv4 } from "uuid";
 
+export const ORDER_NUMBER_PREFIX: string = "ORD-";
+export const TIMESTAMP_LENGTH: number = 6;
+export const RANDOM_STRING_LENGTH: number = 4;
+export const ORDER_NUMBER_CHARS: string =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
 const ORDERS_FILE_PATH = path.join(
   process.cwd(),
   DATA_DIRECTORY,
@@ -39,11 +45,31 @@ const ensureDataDirectory = () => {
   }
 };
 
+const generateRandomString = (length: number): string => {
+  let result: string = "";
+
+  for (let i = 0; i < length; i += 1) {
+    result += ORDER_NUMBER_CHARS.charAt(
+      Math.floor(Math.random() * ORDER_NUMBER_CHARS.length)
+    );
+  }
+
+  return result;
+};
+
+export const generateOrderNumber = (): string => {
+  const timestamp: string = Date.now().toString().slice(-TIMESTAMP_LENGTH);
+  const randomString: string = generateRandomString(RANDOM_STRING_LENGTH);
+
+  return `${ORDER_NUMBER_PREFIX}${timestamp}-${randomString}`;
+};
+
 export async function POST(request: Request) {
   try {
     const order = (await request.json()) as Omit<Order, "id">;
     const orderWithId: Order = {
       ...order,
+      orderNumber: generateOrderNumber(),
       id: uuidv4(), // use uuid for order id
     };
 

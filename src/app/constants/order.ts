@@ -8,8 +8,3 @@ export const initialCheckoutFormValues: CustomerInfo = {
   state: "",
   country: "",
 };
-export const ORDER_NUMBER_PREFIX: string = "ORD-";
-export const TIMESTAMP_LENGTH: number = 6;
-export const RANDOM_STRING_LENGTH: number = 4;
-export const ORDER_NUMBER_CHARS: string =
-  "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";

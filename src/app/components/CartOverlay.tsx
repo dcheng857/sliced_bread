@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { generateOrderNumber } from "../helpers/order";
 import { CartItem } from "../types/beverages";
 import { CustomerInfo } from "../types/customer";
 import { Order } from "../types/order";
@@ -35,9 +34,7 @@ export default function CartOverlay(props: CartOverlayProps) {
   const { totalItems, totalPrice } = calculateCartTotals();
 
   const getOrderData = (customerInfo: CustomerInfo): Order => {
-    const newOrderNumber = generateOrderNumber();
     const newOrder = {
-      orderNumber: newOrderNumber,
       customerInfo,
       items: cart,
       totalPrice,
